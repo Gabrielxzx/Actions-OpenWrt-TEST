@@ -31,7 +31,8 @@ env:
   FEEDS_CONF_LEDE: compile/feeds.conf/feeds.conf.default_LEDE
   FEEDS_CONF_Immortalwrt_2102: compile/feeds.conf/feeds.conf.default_Immortalwrt_2102
   FEEDS_CONF_Immortalwrt_1806: compile/feeds.conf/feeds.conf.default_Immortalwrt_1806
-  CONFIG_FILE: compile/config/default/OrangePi-zero.config
+  CONFIG_FILE_1: compile/config/default/OrangePi-zero-1806.config
+  CONFIG_FILE_2: compile/config/default/OrangePi-zero-2102.config
   DIY_P1_SH: compile/scripts/diy-part1.sh
   DIY_P2_SH: compile/scripts/diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -103,7 +104,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e $CONFIG_FILE_1 ] && mv $CONFIG_FILE_1 openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
@@ -280,7 +281,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e $CONFIG_FILE_2 ] && mv $CONFIG_FILE_2 openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
@@ -457,7 +458,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e $CONFIG_FILE_1 ] && mv $CONFIG_FILE_1 openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
