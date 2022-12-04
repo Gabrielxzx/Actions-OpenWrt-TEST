@@ -375,7 +375,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: ${{ steps.tag.outputs.release_date }} OrangePi_zero_Immortalwrt_openwrt-18.06-k5.4
+        name: ${{ steps.tag.outputs.release_date }} OrangePi_zero_Immortalwrt_openwrt-21.02
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
