@@ -17,8 +17,8 @@
 git clone https://github.com/Gabrielxzx/Gabrielxzx-luci.git package/Gabrielxzx/luci
 
 #Fix Lede Dnsmasq
-rm -rf package/network/services/dnsmasq
-git clone https://github.com/Gabrielxzx/Package-Backup-Lede.git package/Gabrielxzx/Dnsmasq
+# rm -rf package/network/services/dnsmasq
+# git clone https://github.com/Gabrielxzx/Package-Backup-Lede.git package/Gabrielxzx/Dnsmasq
 
 #添加luci-app-ikoolproxy
 git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
