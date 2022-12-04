@@ -17,7 +17,7 @@
 git clone https://github.com/Gabrielxzx/Gabrielxzx-luci.git package/Gabrielxzx/luci
 
 #Fix Lede Dnsmasq
-# rm -rf package/network/services/dnsmasq
+rm -rf package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch
 # git clone https://github.com/Gabrielxzx/Package-Backup-Lede.git package/Gabrielxzx/Dnsmasq
 
 #添加luci-app-ikoolproxy
