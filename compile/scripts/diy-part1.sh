@@ -16,10 +16,6 @@
 #添加自用备份包
 git clone https://github.com/Gabrielxzx/Gabrielxzx-luci.git package/Gabrielxzx/luci
 
-#Fix Lede Dnsmasq
-rm -rf package/network/services/dnsmasq/patches/001-CVE-2022-0934-Fix-write-after-free-error-in-DHCPv6-code.patch
-# git clone https://github.com/Gabrielxzx/Package-Backup-Lede.git package/Gabrielxzx/Dnsmasq
-
 #添加luci-app-ikoolproxy
 git clone https://github.com/iwrt/luci-app-ikoolproxy.git package/luci-app-ikoolproxy
 
@@ -28,8 +24,8 @@ git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.gi
 
 # 修改luci-theme-argon(更换为jerrykuku库)
 rm -rf package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # 修改Passwall和SSRPLUS
 rm -rf feeds/kenzok8/luci-app-passwall
