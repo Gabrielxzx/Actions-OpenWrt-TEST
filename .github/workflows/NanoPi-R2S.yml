@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OrangePi zero OpenWrt
+name: Build NanoPi R2S OpenWrt
 
 on:
   repository_dispatch:
@@ -18,8 +18,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 16 * * *
+#  schedule:
+#    - cron: 0 16 * * *
 
 
 env:
@@ -31,8 +31,8 @@ env:
   FEEDS_CONF_LEDE: compile/feeds.conf/feeds.conf.default_LEDE
   FEEDS_CONF_Immortalwrt_2102: compile/feeds.conf/feeds.conf.default_Immortalwrt_2102
   FEEDS_CONF_Immortalwrt_1806: compile/feeds.conf/feeds.conf.default_Immortalwrt_1806
-  CONFIG_FILE_1: compile/config/default/OrangePi-zero-1806.config
-  CONFIG_FILE_2: compile/config/default/OrangePi-zero-2102.config
+  CONFIG_FILE_1: compile/config/default/NanoPi-R2S-1806.config
+  CONFIG_FILE_2: compile/config/default/NanoPi-R2S-2102.config
   DIY_P1_SH: compile/scripts/diy-part1.sh
   DIY_P2_SH: compile/scripts/diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -198,7 +198,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: ${{ steps.tag.outputs.release_date }} OrangePi_zero_LEDE_openwrt
+        name: ${{ steps.tag.outputs.release_date }} NanoPi_R2S_LEDE_openwrt
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
@@ -375,7 +375,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: ${{ steps.tag.outputs.release_date }} OrangePi_zero_Immortalwrt-21.02
+        name: ${{ steps.tag.outputs.release_date }} NanoPi_R2S_Immortalwrt-21.02
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
@@ -552,7 +552,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: ${{ steps.tag.outputs.release_date }} OrangePi_zero_Immortalwrt-18.06-k5.4
+        name: ${{ steps.tag.outputs.release_date }} NanoPi_R2S_Immortalwrt-18.06-k5.4
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
