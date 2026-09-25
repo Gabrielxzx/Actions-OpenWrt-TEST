@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dd if=/dev/zero of=/dev/mmcblk0 bs=8M count=1

@@ -1,0 +1,3 @@
+如果刷入固件后无法进入web，可以ssh连接后，输入命令 firstboot
+
+刷入5.1X以上内核固件后，如果想进入刷机模式，可以ssh连接后，输入命令 dd if=/dev/zero of=/dev/mmcblk0 bs=8M count=1 ，然后重启，可以进入MASRKROM刷机模式.

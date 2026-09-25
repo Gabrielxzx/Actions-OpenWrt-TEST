@@ -1,0 +1,396 @@
+#!/bin/sh /etc/rc.common
+# Copyright (c) 2011-2015 OpenWrt.org
+
+START=21
+
+add_static_ip() {
+
+	uci -q batch <<-EOF >/dev/null
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2P_MTK_1
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=68:DB:54:E7:BD:80
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.20
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2P_MTK_2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=74:7D:24:93:9A:10
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.21
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2P_BCM_1
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=FC:7C:02:9E:7F:D5
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.22
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2T
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=98:BB:99:0A:8F:72
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.23
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=Tenda_AC9
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=C8:3A:35:22:BC:C9
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.24
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=TP_XAP5100HC_1
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=F8:CE:21:6B:5B:68
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.25
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_E1
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=68:DB:54:DC:D8:DD
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.30
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_1
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=CC:81:DA:4E:66:A1
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.31
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=D8:C8:E9:52:62:11
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.32
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_3
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=74:7D:24:F6:1B:81
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.33
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_4
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=2C:B2:1A:33:7D:C1
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.34
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_5
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=2C:B2:1A:34:18:69
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.35
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_6
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=FC:7C:02:55:98:26
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.36
+		set dhcp.@host[-1].leasetime=infinite
+
+		add dhcp host
+		set dhcp.@host[-1].name=TL_SG2008D_1
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=3C:6A:48:2E:FA:35
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.40
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=TL_SG2008D_2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=98:97:CC:5C:EB:59
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.41
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=Panther_X2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=D6:90:C6:2C:A4:D4
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.50
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=UG_DXP4800_PLUS
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=6C:1F:F7:8E:68:7D
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.51
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=FNOS_NAS
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=E6:1D:85:A0:73:F1
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.52
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=UG_FNOS
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=52:54:00:49:15:55
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.53
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=XiaoMi_CenterGateway
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=B8:88:80:83:6A:FE
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.60
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=XiaoMi_Gateway2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=18:C2:3C:57:EF:D1
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.61
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=DESKTOP_NEC8
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=98:FA:9B:C1:45:AE
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.80
+		set dhcp.@host[-1].leasetime=infinite
+		
+		commit dhcp
+	EOF
+
+	/etc/init.d/dnsmasq restart
+	return 0
+}
+
+fix_static_ip() {
+
+	uci -q batch <<-EOF >/dev/null
+		set dhcp.@host[0].ip=${1}.${2}.${3}.20
+		set dhcp.@host[1].ip=${1}.${2}.${3}.21
+		set dhcp.@host[2].ip=${1}.${2}.${3}.22
+		set dhcp.@host[3].ip=${1}.${2}.${3}.23
+		set dhcp.@host[4].ip=${1}.${2}.${3}.24
+		set dhcp.@host[5].ip=${1}.${2}.${3}.25
+		set dhcp.@host[6].ip=${1}.${2}.${3}.30
+		set dhcp.@host[7].ip=${1}.${2}.${3}.31
+		set dhcp.@host[8].ip=${1}.${2}.${3}.32
+		set dhcp.@host[9].ip=${1}.${2}.${3}.33
+		set dhcp.@host[10].ip=${1}.${2}.${3}.34
+		set dhcp.@host[11].ip=${1}.${2}.${3}.35
+		set dhcp.@host[12].ip=${1}.${2}.${3}.36
+		set dhcp.@host[13].ip=${1}.${2}.${3}.40
+		set dhcp.@host[14].ip=${1}.${2}.${3}.41
+		set dhcp.@host[15].ip=${1}.${2}.${3}.50
+		set dhcp.@host[16].ip=${1}.${2}.${3}.51
+		set dhcp.@host[17].ip=${1}.${2}.${3}.52
+		set dhcp.@host[18].ip=${1}.${2}.${3}.53
+		set dhcp.@host[19].ip=${1}.${2}.${3}.60
+		set dhcp.@host[20].ip=${1}.${2}.${3}.61
+		set dhcp.@host[21].ip=${1}.${2}.${3}.80
+		
+		commit dhcp
+	EOF
+
+	/etc/init.d/dnsmasq restart
+	return 0
+}
+
+remove_static_ip() {
+
+	uci -q batch <<-EOF >/dev/null
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		
+		commit dhcp
+	EOF
+
+	/etc/init.d/dnsmasq restart
+	return 0
+}
+
+
+set_sideroute_ip() {
+
+	uci -q batch <<-EOF >/dev/null
+		set network.lan.gateway=${1}.${2}.${3}.1
+		set network.lan.dns=${1}.${2}.${3}.1
+		
+		commit network
+	EOF
+
+	/etc/init.d/network restart
+	return 0
+}
+
+set_default_theme() {
+
+	uci -q batch <<-EOF >/dev/null
+		set luci.main.mediaurlbase=/luci-static/argone
+		
+		commit luci
+	EOF
+
+	return 0
+}
+
+remove_https() {
+
+	uci -q batch <<-EOF >/dev/null
+		del_list uhttpd.main.listen_https='0.0.0.0:443'
+		del_list uhttpd.main.listen_https='[::]:443'
+		
+		commit uhttpd
+	EOF
+
+	/etc/init.d/uhttpd restart
+	return 0
+}
+
+set_amlogic_options() {
+
+	uci -q batch <<-EOF >/dev/null
+		set amlogic.config.amlogic_firmware_repo=https://github.com/Gabrielxzx/Actions-OpenWrt
+		set amlogic.config.amlogic_firmware_tag=Armvirt_64
+		
+		commit amlogic
+	EOF
+
+	return 0
+}
+
+
+start() {
+
+	local static_host_name=$(uci -q get dhcp.@host[0].name)
+	
+	local op_lan_ipaddr=$(uci get network.lan.ipaddr)
+	local op_lan_ipaddr_1st=$(uci get network.lan.ipaddr | awk -F '.' '{print $1}')
+	local op_lan_ipaddr_2nd=$(uci get network.lan.ipaddr | awk -F '.' '{print $2}')
+	local op_lan_ipaddr_3rd=$(uci get network.lan.ipaddr | awk -F '.' '{print $3}')
+	local op_lan_ipaddr_4th=$(uci get network.lan.ipaddr | awk -F '.' '{print $4}')
+	
+	local op_lan_gateway=$(uci get network.lan.gateway)
+	local op_lan_gateway_4th=$(uci get network.lan.gateway | awk -F '.' '{print $4}')
+	
+	local static_host_ip=$(uci -q get dhcp.@host[0].ip)
+	local static_host_ip_1st=$(uci -q get dhcp.@host[0].ip | awk -F '.' '{print $1}')
+	local static_host_ip_2nd=$(uci -q get dhcp.@host[0].ip | awk -F '.' '{print $2}')
+	local static_host_ip_3rd=$(uci -q get dhcp.@host[0].ip | awk -F '.' '{print $3}')
+	local static_host_ip_4th=$(uci -q get dhcp.@host[0].ip | awk -F '.' '{print $4}')
+	
+	local device_distrib_target=$(cat /etc/openwrt_release | grep DISTRIB_TARGET | awk -F "'" '{print $2}')
+	
+	if [ "$op_lan_ipaddr_4th" == "1" ]; then
+	
+		echo "The device is mainroute"
+	
+		if [ "$static_host_name" == "PHICOMM_K2P_MTK_1" ]; then
+		
+			echo "The static_ip has already exit"
+			
+			if [ "$static_host_ip_1st" == "$op_lan_ipaddr_1st" ] && [ "$static_host_ip_2nd" == "$op_lan_ipaddr_2nd" ] && [ "$static_host_ip_3rd" == "$op_lan_ipaddr_3rd" ]; then
+			
+				echo "The static_ip is correct"
+				
+			else
+			
+				fix_static_ip $op_lan_ipaddr_1st $op_lan_ipaddr_2nd $op_lan_ipaddr_3rd
+				
+				echo "The static_ip has fixed"
+				
+			fi
+			
+		else
+		
+			add_static_ip $op_lan_ipaddr_1st $op_lan_ipaddr_2nd $op_lan_ipaddr_3rd
+			
+			set_default_theme
+			
+			echo "The static_ip has added success"
+			
+			if [ "$device_distrib_target" == "armvirt/64" ]; then
+			
+				remove_https
+				set_amlogic_options
+				
+				echo "armvirt/64 init success"
+				
+			else
+				
+				echo "The device donot need armvirt/64 init"
+				
+			fi
+		
+		fi
+		
+	else
+	
+		echo "The device is sideroute"
+	
+		if [ "$op_lan_gateway_4th" == "1" ]; then
+		
+			echo "This sideroute has already setted"
+			
+		else
+		
+			set_sideroute_ip $op_lan_ipaddr_1st $op_lan_ipaddr_2nd $op_lan_ipaddr_3rd
+			
+			set_default_theme
+			
+			echo "The sideroute_ip has setted success"
+			
+			if [ "$device_distrib_target" == "armvirt/64" ]; then
+			
+				remove_https
+				
+				echo "remove_https success"
+				
+			else
+				
+				echo "The device donot need remove https"
+				
+			fi
+		
+		fi
+
+		if [ "$static_host_name" == "K2P_1" ]; then
+				
+			remove_static_ip
+				
+			echo "The static_ip has removed"
+				
+		fi
+		
+	fi
+	
+	exit 0
+}
+
+stop() {
+    echo stop
+}
