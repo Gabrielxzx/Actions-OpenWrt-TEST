@@ -34,7 +34,7 @@ env:
     Preset_P2_SH: compile/scripts/preset-part2.sh
     DEVICE_KERNEL: arm64
     FIRMWARE_TAG: Rockchip_Arm64
-    DEPENDS_URL: https://raw.githubusercontent.com/Gabrielxzx/Gabrielxzx-luci/master/openwrt-list/depends-ubuntu-2004-lede
+    DEPENDS_URL: https://raw.githubusercontent.com/Gabrielxzx/Actions-OpenWrt-TEST/refs/heads/master/Gabrielxzx-luci/openwrt-list/depends-ubuntu-2404-lede
     UPLOAD_BIN_DIR: false
     UPLOAD_ARTIFACT: true
     UPLOAD_RELEASE: true
