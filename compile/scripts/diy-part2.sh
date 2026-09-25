@@ -10,5 +10,3 @@
 
 
 
-# 修改Files大法权限
-chmod -R 755 files
